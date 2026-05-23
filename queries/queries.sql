@@ -154,7 +154,7 @@ ORDER BY total DESC;
 SELECT 1;
 
 -- 22. Retorna un llistat que mostri el nom dels graus i la suma del nombre total de crèdits que hi ha per a cada tipus d'assignatura. El resultat ha de tenir tres columnes: nom del grau, tipus d'assignatura i la suma dels crèdits de totes les assignatures que hi ha d'aquest tipus. (grau, tipus, total_creditos)
-SELECT g.nombre AS grau, a.tipo AS tipus, SUM(a.creditos) AS total_creditos
+SELECT g.nombre AS grau, a.tipo AS tipo, SUM(a.creditos) AS total_creditos
 FROM grado g
 JOIN asignatura a 
 ON g.id = a.id_grado
@@ -172,7 +172,7 @@ ON p.id_profesor = pe.id
 LEFT JOIN asignatura a 
 ON p.id_profesor = a.id_profesor
 GROUP BY p.id_profesor, pe.nombre, pe.apellido1, pe.apellido2
-ORDER BY total DESC;
+ORDER BY total DESC, pe.apellido1, pe.apellido2, pe.nombre;
 
 -- 25. Retorna totes les dades de l'alumne/a més jove. (*)
 SELECT *
